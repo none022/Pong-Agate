@@ -7,7 +7,6 @@ public class PaddleController : MonoBehaviour
     public int speed;
     public KeyCode upKey;
     public KeyCode downKey;
-
     private Rigidbody2D rig;
 
     private void Start()
@@ -38,6 +37,7 @@ public class PaddleController : MonoBehaviour
 
     private void MoveObject(Vector2 movement)
     {
+        Debug.Log("Kecepatan paddle : " + movement);
         //gerakan objek dengan input
         rig.velocity = movement;
     }

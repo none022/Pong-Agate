@@ -22,6 +22,11 @@ public class BallController : MonoBehaviour
     {
         transform.position = new Vector3(resetPosition.x, resetPosition.y, 2);
     }
+
+    public void ActivePUSpeedUp(float magnitude)
+    {
+        rig.velocity *= magnitude;
+    }
 }
 
 internal class RigidBody2D

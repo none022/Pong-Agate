@@ -15,5 +15,16 @@ public class MainMenuController : MonoBehaviour
     {
         Debug.Log("Create by Fidel Jeremy Wowiling");
     }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void CreditScene()
+    {
+        SceneManager.LoadScene("CreditScene");
+    }
 }
+
 

@@ -7,6 +7,7 @@ public class PowerUpManager : MonoBehaviour
     public Transform spawnArea;
     public int maxPowerUpAmount;
     public int spamInterval;
+    public int duration;
     public Vector2 powerUpAreaMin;
     public Vector2 powerUpAreaMax;
     public List<GameObject> powerUpTemplateList;
@@ -14,10 +15,12 @@ public class PowerUpManager : MonoBehaviour
     private List<GameObject> powerUpList;
 
     private float timer;
+    
 
     private void Start()
     {
         powerUpList = new List<GameObject>();
+        timer = 0;
     }
 
     private void Update()
@@ -26,8 +29,24 @@ public class PowerUpManager : MonoBehaviour
 
         if(timer > spamInterval)
         {
-            GenerateRandomPowerUp();
-            timer -= spamInterval;
+            {
+                GenerateRandomPowerUp();
+                timer -= spamInterval;
+            }
+        }
+    }
+
+    public void Awake()
+    {
+        StartCoroutine(waiter());
+    }
+
+    IEnumerator waiter()
+    {
+        for (int i = 0; i >= 0; i++)
+        {
+            yield return new WaitForSeconds(duration);
+            RemovePowerUp(powerUpList[i]);
         }
     }
 

@@ -27,6 +27,7 @@ public class BallController : MonoBehaviour
     {
         rig.velocity *= magnitude;
     }
+
 }
 
 internal class RigidBody2D
